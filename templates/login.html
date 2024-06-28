@@ -1,0 +1,31 @@
+{% extends 'base.html' %}
+{% block title %}
+Login Page
+{% endblock %}
+
+{% block content %}
+<div style="width: 100%; display: flex; justify-content: center;">
+    <form action="{{ url_for('login') }}" method="post"
+      style="display: flex; flex-direction: column; gap: 30px; width: 300px;
+align-items:center; justify-content: center; margin-top: 100px; ">
+    {% from 'macros.html' import render_field %}
+
+
+    {{ form.hidden_tag() }}
+
+        <div class="mb-3">
+        {{ render_field(form.email) }}
+
+
+        </div>
+    <div class="mb-3">
+            {{ render_field(form.password) }}
+
+        </div>
+    <div class="mb-3">
+        {{ form.submit }}
+        </div>
+</form>
+</div>
+
+{% endblock %}
